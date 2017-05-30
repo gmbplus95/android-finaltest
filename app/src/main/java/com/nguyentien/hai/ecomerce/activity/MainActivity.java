@@ -127,6 +127,7 @@ public class MainActivity extends AppCompatActivity {
                             e.printStackTrace();
                         }
                     }
+                    cates.add(new Cate(0, "Địa điểm", "http://icons.iconarchive.com/icons/alecive/flatwoken/512/Apps-Google-Maps-icon.png"));
                     cates.add(new Cate(0, "Liên hệ", "https://maxcdn.icons8.com/Color/PNG/96/Business/business_contact-96.png"));
                     cates.add(new Cate(0, "Thông tin", "https://maxcdn.icons8.com/Color/PNG/96/Very_Basic/info-96.png"));
                 }
@@ -173,7 +174,7 @@ public class MainActivity extends AppCompatActivity {
                     case 2:
                         if (CheckConnection.haveNetworkConnection(getApplicationContext())) {
                             Intent intent = new Intent(MainActivity.this, LaptopActivity.class);
-                            intent.putExtra("cateId", cates.get(position).getCateId());
+                            intent.putExtra("cateIdLapTop", cates.get(position).getCateId());
                             startActivity(intent);
                         } else {
                             CheckConnection.showToast_Short(getApplicationContext(), "Bạn hãy kiểm tra lại kết nối");
@@ -182,7 +183,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 3:
                         if (CheckConnection.haveNetworkConnection(getApplicationContext())) {
-                            Intent intent = new Intent(MainActivity.this, ContactActivity.class);
+                            Intent intent = new Intent(MainActivity.this, CustomMapActivity.class);
                             startActivity(intent);
                         } else {
                             CheckConnection.showToast_Short(getApplicationContext(), "Bạn hãy kiểm tra lại kết nối");
@@ -190,6 +191,15 @@ public class MainActivity extends AppCompatActivity {
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
                     case 4:
+                        if (CheckConnection.haveNetworkConnection(getApplicationContext())) {
+                            Intent intent = new Intent(MainActivity.this, ContactActivity.class);
+                            startActivity(intent);
+                        } else {
+                            CheckConnection.showToast_Short(getApplicationContext(), "Bạn hãy kiểm tra lại kết nối");
+                        }
+                        drawerLayout.closeDrawer(GravityCompat.START);
+                        break;
+                    case 5:
                         if (CheckConnection.haveNetworkConnection(getApplicationContext())) {
                             Intent intent = new Intent(MainActivity.this, InfoActivity.class);
                             startActivity(intent);
