@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -145,6 +146,22 @@ public class MainActivity extends AppCompatActivity {
         actionBar();
         actionViewFlipper();
         catchOnItemListView();
+        recyclerViewMain.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
+            @Override
+            public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
+                return false;
+            }
+
+            @Override
+            public void onTouchEvent(RecyclerView rv, MotionEvent e) {
+
+            }
+
+            @Override
+            public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
+
+            }
+        });
     }
 
     private void catchOnItemListView() {
@@ -215,11 +232,11 @@ public class MainActivity extends AppCompatActivity {
 
     private void actionViewFlipper() {
         ArrayList<String> arrAD = new ArrayList<>();
-        arrAD.add("https://media.foody.vn/res/g17/169399/prof/s480x300/foody-mobile-lau-cua-khoi-jpg-205-636229387604727065.jpg");
-        arrAD.add("https://media.foody.vn/res/g27/261032/prof/s480x300/foody-mobile-mi-gia-jpg-865-636304474626002308.jpg");
-        arrAD.add("https://media.foody.vn/res/g10/97518/prof/s480x300/foody-mobile-cr-hp-jpg-396-636283668826118715.jpg");
-        arrAD.add("https://media.foody.vn/res/g15/145394/prof/s480x300/foody-mobile-chago-jpg-842-635761777666543784.jpg");
-        arrAD.add("https://media.foody.vn/res/g12/117809/prof/s480x300/foody-mobile-nom1-jpg-295-635860472691593140.jpg");
+        arrAD.add("http://media.van.vn/Thumbnail/XXL/ContentUpload//hungvv/tu_van/diem_danh_13_dien_thoai_thong_minh_tot_nhat_tren_the_gioi_1-550.jpg");
+        arrAD.add("http://media.van.vn/Thumbnail/XXL/ContentUpload//hungvv/tu_van/diem_danh_13_dien_thoai_thong_minh_tot_nhat_tren_the_gioi_2-550.jpg");
+        arrAD.add("http://media.van.vn/Thumbnail/XXL/ContentUpload//hungvv/tu_van/diem_danh_13_dien_thoai_thong_minh_tot_nhat_tren_the_gioi_4-550.jpg");
+        arrAD.add("http://media.van.vn/Thumbnail/XXL/ContentUpload//hungvv/tu_van/diem_danh_13_dien_thoai_thong_minh_tot_nhat_tren_the_gioi_7-550.jpg");
+        arrAD.add("http://media.van.vn/Thumbnail/XXL/ContentUpload//hungvv/tu_van/diem_danh_13_dien_thoai_thong_minh_tot_nhat_tren_the_gioi_8-550.jpg");
         for (int i = 0; i < arrAD.size(); i++) {
             ImageView imageView = new ImageView(getApplicationContext());
             Picasso.with(getApplicationContext()).load(arrAD.get(i)).into(imageView);

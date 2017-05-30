@@ -9,7 +9,7 @@
     android:weightSum="1">
     <android.support.v7.widget.Toolbar
         android:title="Thông tin liên hệ"
-        android:background="#0015ff"
+        android:background="#9f7cbe"
         android:titleTextColor="#fff"
         android:id="@+id/toolbarContact"
         android:layout_width="match_parent"

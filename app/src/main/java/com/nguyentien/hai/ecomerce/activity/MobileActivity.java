@@ -1,5 +1,6 @@
 package com.nguyentien.hai.ecomerce.activity;
 
+import android.content.Intent;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
@@ -71,7 +72,11 @@ public class MobileActivity extends AppCompatActivity {
         lvMobile.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getApplicationContext(), mProducts.get(position).getId() + "", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), mProducts.get(position).getId() + "", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getApplicationContext(), MobileDetailActivity.class);
+                Product product = mProducts.get(position);
+                intent.putExtra("mobileDetail", product);
+                startActivity(intent);
 
             }
         });
